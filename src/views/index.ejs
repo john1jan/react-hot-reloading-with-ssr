@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="<%- meta_robots %>"/>
+    <meta charset="UTF-8"/>
+    <title><%- meta_title -%></title>
+    <meta name="description" content="<%- meta_desc %>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#23c794" />
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://localhost:3001/css/web.css"/>
+  </head>
+  <body>
+    <div id="main"><%- markup -%></div>
+
+    <script id="preloadedData" type="application/json">
+      <%- preloadedData.replace(/\//g, '\\/') %>
+    </script>
+
+    <script src="/js/bundle.js"></script>
+
+    
+  </body>
+</html>
