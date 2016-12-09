@@ -5,7 +5,10 @@ const path = require('path');
 
 module.exports = {
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: 'webpack-hot-middleware/client',
+  entry: [
+    'webpack-hot-middleware/client',
+    './src/app-client'
+  ],
   output: {
     path: path.join(__dirname, 'src', 'static', 'js'),
     publicPath: "/js/",
@@ -21,20 +24,21 @@ module.exports = {
       }
     }]
   },
-  plugins: debug ? [] : [
+  plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoErrorsPlugin()
+  ].concat(debug ? [] : [
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
       mangle: true,
       sourcemap: false,
       beautify: false,
       dead_code: true
-    }),
-  ]
-};
+    })
+  ])
+}

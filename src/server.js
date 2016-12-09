@@ -83,11 +83,18 @@ app.get('*', (req, res) => {
         }
 
         switch (renderProps.routes[1].path) {
-          
           case ROUTES.HOME:
+            renderNormalPage(res, metaData, preloadedData, renderProps);
+            break;
+
+          case ROUTES.HOME_SSR:
             renderSSRPage(res, metaData, preloadedData, renderProps);
             break;
-          
+
+          case ROUTES.HOME_NORMAL:
+            renderNormalPage(res, metaData, preloadedData, renderProps);
+            break;
+
           default:
             res.status(404);
             break;

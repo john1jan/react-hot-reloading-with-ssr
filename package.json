@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
-    "start": "NODE_ENV=production node_modules/.bin/babel-node --presets 'react,es2015' src/server.js",
-    "build": "NODE_ENV=production node_modules/.bin/webpack -p"
+    "dev": "babel-node --presets 'react,es2015' src/server.js",
+    "start": "NODE_ENV=production babel-node --presets 'react,es2015' src/server.js",
+    "build": "NODE_ENV=production webpack -p"
   },
   "author": "John Francis",
   "license": "MIT",
